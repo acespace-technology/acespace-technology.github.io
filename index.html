@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACE Space Technology</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: #1f2933;
-      background: #f6f8f7;
+      color: #10231d;
+      background: #f4faf7;
       line-height: 1.6;
     }
 
     header {
-      background: #ffffff;
-      border-bottom: 1px solid #d9e2dd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #d7e8df;
       padding: 18px 8%;
       display: flex;
       justify-content: space-between;
@@ -28,76 +30,178 @@
 
     .logo {
       font-size: 22px;
-      font-weight: 700;
-      color: #176b4d;
+      font-weight: 800;
+      color: #0f6848;
     }
 
     nav a {
       margin-left: 24px;
-      color: #344054;
+      color: #2d4b41;
       text-decoration: none;
+      font-weight: 600;
       font-size: 15px;
     }
 
     .hero {
-      padding: 86px 8%;
-      background: linear-gradient(135deg, #e8f5ef 0%, #ffffff 60%);
+      min-height: 76vh;
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, #b9f4dc 0, transparent 28%),
+        linear-gradient(135deg, #ecfff7 0%, #ffffff 48%, #dff8ee 100%);
     }
 
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .tagline {
-      color: #176b4d;
-      font-weight: 700;
-      text-transform: uppercase;
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #a8dec9;
+      border-radius: 999px;
+      color: #0f6848;
+      background: #ffffff;
       font-size: 13px;
-      margin-bottom: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 48px;
-      line-height: 1.15;
-      margin: 0 0 20px;
-      color: #111827;
+      margin: 0 0 22px;
+      font-size: 56px;
+      line-height: 1.05;
+      color: #0c1f19;
     }
 
     .hero p {
+      max-width: 720px;
       font-size: 19px;
-      max-width: 760px;
-      color: #475467;
-      margin-bottom: 30px;
+      color: #406157;
+      margin-bottom: 32px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .button {
       display: inline-block;
-      background: #176b4d;
-      color: #ffffff;
-      padding: 13px 22px;
-      border-radius: 6px;
+      padding: 14px 22px;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
+    }
+
+    .primary {
+      color: #ffffff;
+      background: #0f6848;
+      box-shadow: 0 12px 28px rgba(15,104,72,0.24);
+    }
+
+    .secondary {
+      color: #0f6848;
+      background: #ffffff;
+      border: 1px solid #b9dccc;
+    }
+
+    .visual {
+      background: #ffffff;
+      border: 1px solid #cfe6dc;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 24px 70px rgba(35, 84, 66, 0.14);
+    }
+
+    .dashboard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .dot-group span {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      margin-right: 7px;
+      background: #9bd9c0;
+    }
+
+    .status {
+      color: #0f6848;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .chart {
+      height: 220px;
+      display: flex;
+      align-items: end;
+      gap: 14px;
+      padding: 24px;
+      border-radius: 14px;
+      background: #f1faf6;
+      border: 1px solid #d9eee5;
+    }
+
+    .bar {
+      flex: 1;
+      min-width: 24px;
+      border-radius: 8px 8px 0 0;
+      background: linear-gradient(180deg, #26a56f, #0f6848);
+    }
+
+    .bar:nth-child(1) { height: 42%; }
+    .bar:nth-child(2) { height: 66%; }
+    .bar:nth-child(3) { height: 54%; }
+    .bar:nth-child(4) { height: 82%; }
+    .bar:nth-child(5) { height: 72%; }
+    .bar:nth-child(6) { height: 92%; }
+
+    .insight-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 12px;
+      background: #f8fffb;
+      border: 1px solid #d9eee5;
+    }
+
+    .mini-card strong {
+      display: block;
+      color: #0f6848;
+      font-size: 22px;
     }
 
     section {
-      padding: 64px 8%;
+      padding: 72px 8%;
     }
 
     .section-title {
-      max-width: 760px;
-      margin-bottom: 34px;
+      max-width: 780px;
+      margin-bottom: 36px;
     }
 
     h2 {
-      font-size: 32px;
       margin: 0 0 12px;
-      color: #111827;
+      font-size: 34px;
+      color: #0c1f19;
     }
 
     .section-title p {
-      color: #667085;
       margin: 0;
+      color: #58756b;
+      font-size: 17px;
     }
 
     .grid {
@@ -108,59 +212,98 @@
 
     .card {
       background: #ffffff;
-      border: 1px solid #d9e2dd;
-      border-radius: 8px;
-      padding: 26px;
+      border: 1px solid #d9eee5;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 14px 38px rgba(28, 78, 58, 0.08);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #e5f8ef;
+      color: #0f6848;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      margin-bottom: 18px;
     }
 
     .card h3 {
-      margin-top: 0;
-      color: #176b4d;
-      font-size: 20px;
+      margin: 0 0 10px;
+      color: #0f6848;
+      font-size: 21px;
     }
 
     .card p {
-      color: #475467;
-      margin-bottom: 0;
+      margin: 0;
+      color: #526b62;
     }
 
     .highlight {
       background: #ffffff;
-      border-top: 1px solid #d9e2dd;
-      border-bottom: 1px solid #d9e2dd;
+      border-top: 1px solid #d9eee5;
+      border-bottom: 1px solid #d9eee5;
     }
 
     .two-column {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
       align-items: center;
     }
 
-    .metrics {
+    .feature-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      margin-bottom: 14px;
+      padding-left: 30px;
+      position: relative;
+      color: #3f5e54;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0f6848;
+      font-weight: 900;
+    }
+
+    .process {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .metric {
-      background: #f1f7f4;
-      border: 1px solid #d9e2dd;
-      border-radius: 8px;
-      padding: 22px;
+    .step {
+      background: #ffffff;
+      border: 1px solid #d9eee5;
+      border-radius: 12px;
+      padding: 24px;
     }
 
-    .metric strong {
-      display: block;
-      font-size: 28px;
-      color: #176b4d;
-      margin-bottom: 6px;
+    .step span {
+      display: inline-block;
+      color: #ffffff;
+      background: #0f6848;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 14px;
     }
 
     .contact {
-      background: #176b4d;
-      color: #ffffff;
       text-align: center;
+      background: linear-gradient(135deg, #0f6848, #16875f);
+      color: #ffffff;
     }
 
     .contact h2 {
@@ -169,19 +312,19 @@
 
     .contact p {
       max-width: 720px;
-      margin: 0 auto 24px;
-      color: #e6f4ee;
+      margin: 0 auto 28px;
+      color: #e7fff4;
     }
 
     footer {
-      background: #0f2f24;
-      color: #cfe3da;
+      background: #0b241a;
+      color: #cde7dc;
       text-align: center;
-      padding: 22px 8%;
+      padding: 24px 8%;
       font-size: 14px;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 900px) {
       header {
         display: block;
       }
@@ -193,16 +336,21 @@
       nav a {
         margin-left: 0;
         margin-right: 16px;
-        display: inline-block;
+      }
+
+      .hero,
+      .two-column,
+      .grid,
+      .process {
+        grid-template-columns: 1fr;
       }
 
       h1 {
-        font-size: 36px;
+        font-size: 38px;
       }
 
-      .grid,
-      .two-column {
-        grid-template-columns: 1fr;
+      .hero {
+        padding-top: 58px;
       }
     }
   </style>
@@ -213,55 +361,84 @@
     <nav>
       <a href="#services">Services</a>
       <a href="#ai">AI & Data</a>
+      <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-content">
-        <div class="tagline">IT solutions for the recycling industry</div>
-        <h1>Helping recycling businesses improve production, data, and workflow.</h1>
+      <div>
+        <div class="badge">Recycling Technology Solutions</div>
+        <h1>Smarter IT, data, and AI solutions for recycling operations.</h1>
         <p>
-          ACE Space Technology provides practical IT solutions, software tools,
-          data management, and AI-based analysis for recycling companies that
-          want clearer operations and better business decisions.
+          ACE Space Technology helps recycling businesses improve production visibility,
+          data management, workflow efficiency, and decision-making through practical
+          IT systems and AI-based analysis.
         </p>
-        <a class="button" href="#contact">Contact us</a>
+        <div class="actions">
+          <a class="button primary" href="#contact">Contact us</a>
+          <a class="button secondary" href="#services">View services</a>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="dashboard-top">
+          <div class="dot-group">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="status">Production Insight</div>
+        </div>
+        <div class="chart">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="insight-row">
+          <div class="mini-card"><strong>AI</strong>Analysis</div>
+          <div class="mini-card"><strong>Data</strong>Reporting</div>
+          <div class="mini-card"><strong>IT</strong>Support</div>
+        </div>
       </div>
     </section>
 
     <section id="services">
       <div class="section-title">
-        <h2>What We Do</h2>
+        <h2>Our Services</h2>
         <p>
-          We support recycling businesses with technology that improves daily
-          operations, reporting, and team workflows.
+          We provide technology support designed for recycling businesses,
+          from daily IT needs to workflow improvement and production data analysis.
         </p>
       </div>
 
       <div class="grid">
         <div class="card">
+          <div class="icon">01</div>
           <h3>Software Tools</h3>
           <p>
-            We help build and support digital tools for recycling operations,
-            production tracking, internal systems, and business processes.
+            Business tools for recycling operations, production tracking,
+            internal systems, forms, reports, and workflow management.
           </p>
         </div>
 
         <div class="card">
-          <h3>IT Support</h3>
-          <p>
-            We provide practical IT support for systems, users, devices, data,
-            and workplace technology needs.
-          </p>
-        </div>
-
-        <div class="card">
+          <div class="icon">02</div>
           <h3>Data Management</h3>
           <p>
-            We help organize business data so teams can understand performance,
-            reduce manual work, and improve reporting.
+            Clear data organization and reporting to help customers understand
+            performance, reduce manual work, and improve decision-making.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="icon">03</div>
+          <h3>IT Support</h3>
+          <p>
+            Practical support for systems, users, devices, cloud tools,
+            workplace technology, and digital business operations.
           </p>
         </div>
       </div>
@@ -270,58 +447,73 @@
     <section id="ai" class="highlight">
       <div class="two-column">
         <div>
-          <h2>AI and Data Analysis</h2>
+          <div class="badge">AI & Data Analysis</div>
+          <h2>Turn business data into useful operational insight.</h2>
           <p>
-            Our AI-based analysis helps customers review production data,
-            identify workflow issues, and improve operational efficiency.
+            We use AI-based data analysis to help customers review production
+            performance, identify workflow issues, and improve business efficiency.
           </p>
-          <p>
-            By turning business data into clear insights, we help customers make
-            better decisions and improve daily work processes.
-          </p>
+          <ul class="feature-list">
+            <li>Analyse production and workflow data.</li>
+            <li>Improve visibility across daily operations.</li>
+            <li>Support better planning and business decisions.</li>
+            <li>Reduce manual reporting and repeated work.</li>
+          </ul>
         </div>
 
-        <div class="metrics">
-          <div class="metric">
-            <strong>Data</strong>
-            Better visibility of production and workflow information.
-          </div>
-          <div class="metric">
-            <strong>AI</strong>
-            Smarter analysis to support business decisions.
-          </div>
-          <div class="metric">
-            <strong>Workflow</strong>
-            Practical improvement for daily operations.
-          </div>
-          <div class="metric">
-            <strong>Support</strong>
-            Technology support for recycling businesses.
-          </div>
+        <div class="card">
+          <h3>Core Business</h3>
+          <p>
+            ACE Space Technology provides IT solutions for the recycling industry.
+            We support recycling businesses with software tools, system development,
+            data management, IT support, and AI-based data analysis. Our solutions
+            help customers improve production efficiency, understand business data,
+            and improve daily workflows.
+          </p>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="process">
       <div class="section-title">
-        <h2>Core Business</h2>
+        <h2>How We Help</h2>
         <p>
-          ACE Space Technology provides IT solutions for the recycling industry.
-          We support recycling businesses with software tools, system
-          development, data management, IT support, and AI-based data analysis.
-          Our solutions help customers improve production efficiency, understand
-          business data, and improve daily workflows.
+          We focus on practical technology improvements that are useful for real
+          business operations.
         </p>
+      </div>
+
+      <div class="process">
+        <div class="step">
+          <span>Step 1</span>
+          <h3>Understand</h3>
+          <p>Review customer systems, workflow, and business needs.</p>
+        </div>
+        <div class="step">
+          <span>Step 2</span>
+          <h3>Organise</h3>
+          <p>Clean and structure data for clearer reporting and analysis.</p>
+        </div>
+        <div class="step">
+          <span>Step 3</span>
+          <h3>Improve</h3>
+          <p>Build tools and workflows that reduce manual work.</p>
+        </div>
+        <div class="step">
+          <span>Step 4</span>
+          <h3>Support</h3>
+          <p>Provide ongoing IT and system support for daily operations.</p>
+        </div>
       </div>
     </section>
 
     <section id="contact" class="contact">
-      <h2>Technology support for recycling operations</h2>
+      <h2>Technology support for modern recycling businesses</h2>
       <p>
-        We work with customers to improve production visibility, business
-        systems, and workplace efficiency through practical IT and data solutions.
+        We help customers improve production efficiency, business visibility,
+        and daily workflow through IT solutions, data management, and AI analysis.
       </p>
-      <a class="button" href="mailto:acespacetechnology@gmail.com">Email us</a>
+      <a class="button secondary" href="mailto:acespacetechnology@gmail.com">acespacetechnology@gmail.com</a>
     </section>
   </main>
 
