@@ -1,21 +1,332 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ACE Space Technology</title>
-  <meta charset="UTF-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1f2933;
+      background: #f6f8f7;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #d9e2dd;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #176b4d;
+    }
+
+    nav a {
+      margin-left: 24px;
+      color: #344054;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .hero {
+      padding: 86px 8%;
+      background: linear-gradient(135deg, #e8f5ef 0%, #ffffff 60%);
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .tagline {
+      color: #176b4d;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin: 0 0 20px;
+      color: #111827;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 760px;
+      color: #475467;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #176b4d;
+      color: #ffffff;
+      padding: 13px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 64px 8%;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin: 0 0 12px;
+      color: #111827;
+    }
+
+    .section-title p {
+      color: #667085;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #d9e2dd;
+      border-radius: 8px;
+      padding: 26px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #176b4d;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #475467;
+      margin-bottom: 0;
+    }
+
+    .highlight {
+      background: #ffffff;
+      border-top: 1px solid #d9e2dd;
+      border-bottom: 1px solid #d9e2dd;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .metric {
+      background: #f1f7f4;
+      border: 1px solid #d9e2dd;
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 28px;
+      color: #176b4d;
+      margin-bottom: 6px;
+    }
+
+    .contact {
+      background: #176b4d;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .contact h2 {
+      color: #ffffff;
+    }
+
+    .contact p {
+      max-width: 720px;
+      margin: 0 auto 24px;
+      color: #e6f4ee;
+    }
+
+    footer {
+      background: #0f2f24;
+      color: #cfe3da;
+      text-align: center;
+      padding: 22px 8%;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      header {
+        display: block;
+      }
+
+      nav {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+        display: inline-block;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>ACE Space Technology</h1>
+  <header>
+    <div class="logo">ACE Space Technology</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#ai">AI & Data</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <p>
-    ACE Space Technology provides IT solutions for the recycling industry.
-    We support recycling businesses with software tools, system development,
-    data management, IT support, and AI-based data analysis.
-  </p>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="tagline">IT solutions for the recycling industry</div>
+        <h1>Helping recycling businesses improve production, data, and workflow.</h1>
+        <p>
+          ACE Space Technology provides practical IT solutions, software tools,
+          data management, and AI-based analysis for recycling companies that
+          want clearer operations and better business decisions.
+        </p>
+        <a class="button" href="#contact">Contact us</a>
+      </div>
+    </section>
 
-  <p>
-    Our solutions help customers improve production efficiency, understand
-    business data, and improve daily workflows.
-  </p>
+    <section id="services">
+      <div class="section-title">
+        <h2>What We Do</h2>
+        <p>
+          We support recycling businesses with technology that improves daily
+          operations, reporting, and team workflows.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Software Tools</h3>
+          <p>
+            We help build and support digital tools for recycling operations,
+            production tracking, internal systems, and business processes.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>IT Support</h3>
+          <p>
+            We provide practical IT support for systems, users, devices, data,
+            and workplace technology needs.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Data Management</h3>
+          <p>
+            We help organize business data so teams can understand performance,
+            reduce manual work, and improve reporting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai" class="highlight">
+      <div class="two-column">
+        <div>
+          <h2>AI and Data Analysis</h2>
+          <p>
+            Our AI-based analysis helps customers review production data,
+            identify workflow issues, and improve operational efficiency.
+          </p>
+          <p>
+            By turning business data into clear insights, we help customers make
+            better decisions and improve daily work processes.
+          </p>
+        </div>
+
+        <div class="metrics">
+          <div class="metric">
+            <strong>Data</strong>
+            Better visibility of production and workflow information.
+          </div>
+          <div class="metric">
+            <strong>AI</strong>
+            Smarter analysis to support business decisions.
+          </div>
+          <div class="metric">
+            <strong>Workflow</strong>
+            Practical improvement for daily operations.
+          </div>
+          <div class="metric">
+            <strong>Support</strong>
+            Technology support for recycling businesses.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Core Business</h2>
+        <p>
+          ACE Space Technology provides IT solutions for the recycling industry.
+          We support recycling businesses with software tools, system
+          development, data management, IT support, and AI-based data analysis.
+          Our solutions help customers improve production efficiency, understand
+          business data, and improve daily workflows.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Technology support for recycling operations</h2>
+      <p>
+        We work with customers to improve production visibility, business
+        systems, and workplace efficiency through practical IT and data solutions.
+      </p>
+      <a class="button" href="mailto:acespacetechnology@gmail.com">Email us</a>
+    </section>
+  </main>
+
+  <footer>
+    Copyright 2026 ACE Space Technology. All rights reserved.
+  </footer>
 </body>
 </html>
